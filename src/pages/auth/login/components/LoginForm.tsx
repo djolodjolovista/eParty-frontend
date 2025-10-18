@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "@/hooks/auth/useLoginMutation";
 import { useAuthStore } from "@/store/authStore";
 import { Link } from "react-router-dom";
+import { ROUTES } from "@/routes/paths";
 
 const LoginForm = () => {
   const {
@@ -23,18 +24,18 @@ const LoginForm = () => {
     loginMutation.mutate(data, {
       onSuccess: (res) => {
         useAuthStore.getState().login(res.accessToken, res.user);
-        navigate("/dashboard");
+        navigate(ROUTES.DASHBOARD);
       },
     });
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
-      <h3 className="font-bold">Login</h3>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
+      <h3 className="font-bold text-xl">Login</h3>
       <div>
         <Input
+          label="Email"
           type="email"
-          placeholder="Email"
           {...register("email", { required: "Email is required" })}
           error={errors.email?.message}
         />
@@ -43,7 +44,6 @@ const LoginForm = () => {
 
       <div>
         <PasswordInput
-          placeholder="Password"
           {...register("password", { required: "Password is required" })}
           error={errors.password?.message}
         />

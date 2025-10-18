@@ -36,14 +36,14 @@ const ResetPassword = () => {
     <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md flex flex-col gap-10">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="space-y-4 w-full max-w-md mx-auto"
+        className="space-y-6 w-full max-w-md mx-auto"
         noValidate
       >
-        <h3 className="font-bold text-lg">Reset Password</h3>
+        <h3 className="font-bold text-xl">Reset Password</h3>
 
         <div>
           <PasswordInput
-            placeholder="New Password"
+            label="New Password"
             {...register("password")}
             error={errors.password?.message}
           />
@@ -56,7 +56,7 @@ const ResetPassword = () => {
 
         <div>
           <PasswordInput
-            placeholder="Confirm Password"
+            label="Confirm Password"
             {...register("confirmPassword")}
             error={errors.confirmPassword?.message}
           />

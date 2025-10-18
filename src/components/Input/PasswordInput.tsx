@@ -5,14 +5,16 @@ import Input from "./Input";
 interface PasswordInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
+  label?: string;
 }
 
-const PasswordInput = ({ error, ...props }: PasswordInputProps) => {
+const PasswordInput = ({ error, label, ...props }: PasswordInputProps) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="relative w-full">
       <Input
+        label={label || "Password"}
         type={showPassword ? "text" : "password"}
         error={error}
         className="pr-10"

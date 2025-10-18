@@ -23,13 +23,13 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
-      <h3 className="font-bold">Registration</h3>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
+      <h3 className="font-bold text-xl">Registration</h3>
 
       <div>
         <Input
+          label="First name"
           type="text"
-          placeholder="First Name"
           {...register("firstName", { required: "First name is required" })}
           error={errors.firstName?.message}
         />
@@ -43,7 +43,7 @@ const RegisterForm = () => {
       <div>
         <Input
           type="text"
-          placeholder="Last Name"
+          label="Last name"
           {...register("lastName", { required: "Last name is required" })}
           error={errors.lastName?.message}
         />
@@ -55,7 +55,7 @@ const RegisterForm = () => {
       <div>
         <Input
           type="email"
-          placeholder="Email"
+          label="Email"
           {...register("email", { required: "Email is required" })}
           error={errors.email?.message}
         />
@@ -66,7 +66,6 @@ const RegisterForm = () => {
 
       <div>
         <PasswordInput
-          placeholder="Password"
           {...register("password", { required: "Password is required" })}
           error={errors.password?.message}
         />
@@ -75,7 +74,9 @@ const RegisterForm = () => {
         )}
       </div>
 
-      <Button type="submit">Register</Button>
+      <Button className="w-full" type="submit">
+        Register
+      </Button>
     </form>
   );
 };

@@ -12,12 +12,12 @@ const ForgotPasswordForm = () => {
     passwordForget.mutate(email);
   };
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <h2 className="text-2xl font-bold mb-6 text-center">Forgot Password</h2>
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <h2 className="text-xl font-bold mb-6 text-center">Forgot Password</h2>
       <div>
         <Input
           type="email"
-          placeholder="Enter your email"
+          label="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
