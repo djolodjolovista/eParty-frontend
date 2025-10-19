@@ -8,6 +8,7 @@ import { useLoginMutation } from "@/hooks/auth/useLoginMutation";
 import { useAuthStore } from "@/store/authStore";
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/routes/paths";
+import { GoogleLoginButton } from "./GoogleLogin";
 
 const LoginForm = () => {
   const {
@@ -63,6 +64,7 @@ const LoginForm = () => {
       <Button className="w-full" type="submit">
         Login
       </Button>
+      <GoogleLoginButton />
       <div className="text-center text-sm mt-4">
         <span className="text-gray-600">Need an account? </span>
         <Link

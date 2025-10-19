@@ -22,3 +22,7 @@ export interface LoginResponse {
   refreshToken: string;
   user: User;
 }
+
+export interface GoogleLoginData {
+  credential: string;
+}

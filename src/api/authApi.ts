@@ -2,7 +2,7 @@ import type { RegisterData } from "@/features/auth/registerSchema";
 import apiClient from "./utils/apiClient";
 import type { LoginData } from "@/features/auth/loginSchema";
 import { handleApiError } from "./utils/apiHelper";
-import type { LoginResponse } from "@/types/api";
+import type { GoogleLoginData, LoginResponse } from "@/types/api";
 
 export const login = async (credentials: LoginData): Promise<LoginResponse> => {
   try {
@@ -48,6 +48,19 @@ export const resetPassword = async (token: string, newPassword: string) => {
   try {
     const response = await apiClient.post(`/auth/reset-password/${token}`, {
       newPassword,
+    });
+    return response.data.data;
+  } catch (error) {
+    throw handleApiError(error);
+  }
+};
+
+export const googleLogin = async (
+  data: GoogleLoginData
+): Promise<LoginResponse> => {
+  try {
+    const response = await apiClient.post("/auth/google", data, {
+      withCredentials: true,
     });
     return response.data.data;
   } catch (error) {
